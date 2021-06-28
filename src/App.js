@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./components/Header";
+import Posts from "./components/Posts";
 
 function App() {
+  const [posts, setPosts] = useState([
+    {
+      id: 0,
+      title: "How to craft weapons",
+      user: "Batriz",
+      avatar: "../img/user1.jpg",
+      date: "22 June 2021, 10:33",
+      isPinned: true,
+    },
+    {
+      id: 1,
+      title: "Join our gang!",
+      user: "Dereck",
+      avatar: "../img/user2.jpg",
+      date: "25 May 2021, 12:50",
+      isPinned: false,
+    },
+    {
+      id: 2,
+      title: "Please unban me!!!!",
+      user: "Gregier",
+      avatar: "../img/user3.jpg",
+      date: "29 April 2020, 22:15",
+      isPinned: false,
+    },
+  ]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Header />
+      <Posts posts={posts} />
     </div>
   );
 }
